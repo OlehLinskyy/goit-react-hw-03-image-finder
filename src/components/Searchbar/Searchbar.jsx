@@ -16,12 +16,16 @@ class SearchBar extends Component {
     evt.preventDefault();
     this.props.onSubmit(this.state.name);
   };
-
+  
   render() {
     return (
       <header className={css.Searchbar} type="submit">
         <form onSubmit={this.handleSubmit} className={css.SearchForm}>
-          <button type="submit" className={css.SearchForm_button}>
+          <button
+            disabled={this.state.name.length === 0}
+            type="submit"
+            className={css.SearchForm_button}
+          >
             <span className={css.SearchForm_button_label}>
               <BsSearch size="22px" />
             </span>
